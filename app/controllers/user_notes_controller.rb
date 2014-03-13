@@ -7,13 +7,9 @@ class UserNotesController < ApplicationController
   end
 
   def create
-    @user_notes = current_user.user_notes
-    #HACK ALERT: prevent from creating multiple within the same second for the user
-    ok_to_proceed = @user_notes.last.present? ? @user_notes.last.created_at < 1.second.ago : true
-    if (new_note = params[:new_note]).present?  && ok_to_proceed
-      @user_note = current_user.user_notes.build(:notes => new_note)
-      current_user.save!
-    end
+    service = UserNotesService.new(current_user)
+    @user_note = service.create_note_from(params[:new_note])
+    @user_notes = service.all_notes
     respond_to do |format|
       format.html { redirect_to(user_notes_url) }
       format.js

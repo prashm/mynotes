@@ -10,6 +10,7 @@ You require ruby 1.9.3 or higher
 
 `rake db:migrate`
 
+
 ## Running
 
 `rails s`
@@ -18,7 +19,15 @@ open localhost:3000 in chrome. Create account. Write text and save.
 
 open another browser. Sign-in. You should see the saved text.
 
-## Notes update without refresh on another window
+
+# Tests
+
+`rake db:test:prepare`
+
+`rspec spec`
+
+
+## Text updates without refresh on another window!
 
 Launch faye server on a separate terminal.
 
