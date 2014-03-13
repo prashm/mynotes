@@ -9,7 +9,8 @@ class UserNotesController < ApplicationController
   def create
     @user_notes = current_user.user_notes
     #HACK ALERT: prevent from creating multiple within the same second for the user
-    if (new_note = params[:new_note]).present?  && @user_notes.last.created_at < 1.second.ago
+    ok_to_proceed = @user_notes.last.present? ? @user_notes.last.created_at < 1.second.ago : true
+    if (new_note = params[:new_note]).present?  && ok_to_proceed
       @user_note = current_user.user_notes.build(:notes => new_note)
       current_user.save!
     end
