@@ -1,2 +1,5 @@
 development:
   host_url: http://localhost:9292/faye
+
+test:
+  host_url: http://localhost:9292/faye

@@ -27,7 +27,8 @@ class UserNotesController < ApplicationController
   private
 
   def set_user_note
-    @user_note = current_user.user_notes.first || current_user.user_notes.new.save!
+    @user_note = current_user.user_notes.first || current_user.user_notes.new
+    @user_note.save
   end
 
   def user_notes_param

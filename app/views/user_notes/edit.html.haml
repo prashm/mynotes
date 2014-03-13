@@ -1,6 +1,6 @@
-%h2 Your note:
+%h2.em= "Notes for #{current_user.uname}:"
 .flash_notice
 = form_for @user_note, method: 'PUT', remote: true do |f|
-  = f.text_area :notes, id: "notes_text_area", class: 'note_size'
+  = f.text_area :notes, id: "notes_text_area_#{@user_note.id}", class: 'note_size'
   %br
   = f.submit :save, id: 'save_button'
