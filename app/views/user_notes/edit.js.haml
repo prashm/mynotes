@@ -1,0 +1,7 @@
+var selector = $('#notes .user_note#user_note_#{@user_note.id} .left');
+var content = selector.html();
+var rows = selector.height()/17;
+var textarea = $('<textarea />').attr('name', 'text').attr('rows', rows).addClass('left').css('font-size', '.8em').html(content);
+selector.html(textarea);
+$('#notes .user_note#user_note_#{@user_note.id} .right .control .edit_delete').toggleClass('hidden', true);
+$('#notes .user_note#user_note_#{@user_note.id} .right .control .save_cancel').toggleClass('hidden', false);

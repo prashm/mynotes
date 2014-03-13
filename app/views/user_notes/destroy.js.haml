@@ -1,0 +1,7 @@
+var selector = $('#notes .user_note#user_note_#{@user_note.id}');
+selector.fadeOut();
+selector.remove();
+$('#notes .note:even').css("backgroundColor", "#E9E9E9");
+
+- broadcast("/user_notes/update") do
+  $('#notes').html("#{escape_javascript(render('user_notes', user_notes: @user_notes))}");

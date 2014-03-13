@@ -1,3 +1,7 @@
-$('.flash_notice').html('Saved!').delay(2000).fadeOut();
+$('#notes .user_note#user_note_#{@user_note.id} .left').remove("textarea");
+$('#notes .user_note#user_note_#{@user_note.id} .left').html('#{@user_note.notes}');
+$('#notes .user_note#user_note_#{@user_note.id} .right .control .edit_delete').toggleClass('hidden', false);
+$('#notes .user_note#user_note_#{@user_note.id} .right .control .save_cancel').toggleClass('hidden', true);
+
 - broadcast("/user_notes/update") do
   $("#notes_text_area_#{@user_note.id}").val("#{@user_note.notes}");

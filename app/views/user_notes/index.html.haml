@@ -1,5 +1,9 @@
-%h1 Notes:
-- @user_notes.each do |u|
-  %p
-    %h3= "Created on #{u.created_at}"
-    %em= u.notes
+#notes_panel
+  %strong Notes:
+  #notes
+    = render partial: 'user_notes', locals: {user_notes: @user_notes}
+  %br
+  #add_note
+    = form_tag user_notes_path, remote: true do
+      = text_area_tag 'new_note', '', class: 'add_note_text'
+      = submit_tag 'Add Note', name: 'add_note', disabled: :disabled

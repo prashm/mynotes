@@ -1,0 +1,15 @@
+- user_notes.each do |note|
+  = form_tag user_note_path(note), method: :put, remote: true do
+    .note[note]
+      .left= note.notes
+      .right
+        .timestamp
+          %small=format_friendly_time(note.created_at)
+        %span(class = 'edit_delete')
+          -#= link_to 'Edit', edit_user_note_path(note), method: :get, remote: :true
+          -#&nbsp;
+          = link_to 'Delete', user_note_path(note), method: :delete, remote: :true
+        %span(class = 'save_cancel hidden')
+          = submit_tag 'Update', name: 'update_note'
+    -#.clear[note]
+  -#.clear[note]

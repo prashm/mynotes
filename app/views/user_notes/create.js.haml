@@ -1,0 +1,8 @@
+:plain
+  $('#notes').html("#{escape_javascript(render('user_notes', user_notes: @user_notes))}");
+  $('#add_note textarea').val('');
+  $('#add_note input[type="submit"]').attr('disabled', 'disabled');
+  $('#notes .note:even').css("backgroundColor", "#E9E9E9");
+
+- broadcast("/user_notes/update") do
+  $('#notes').html("#{escape_javascript(render('user_notes', user_notes: @user_notes))}");

@@ -6,3 +6,41 @@
   width: 80%;
   height: 300px;
 }
+
+#notes_panel {
+  padding: 10px 0;
+  overflow: visible;
+  #notes {
+    .note {
+      .left {
+        padding: 10px;
+        font-weight: normal;
+        //margin: 0px;
+      }
+      .right {
+        //float: right;
+        //padding:   10px;
+        font-size: 12px;
+        //margin: 0px;
+        .timestamp {
+          //padding-bottom: 5px;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+    }
+
+  }
+  .add_note_text {
+    height: 40px;
+    width: 340px;
+    font-size: .8em;
+    margin: 5px;
+  }
+  .button {
+    font-size: 14px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
