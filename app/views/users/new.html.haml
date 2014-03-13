@@ -1,0 +1,23 @@
+%h1 Sign Up
+
+= form_for @user do |f|
+  - if @user.errors.present?
+    %div.error_messages
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  %p
+    %label User name
+    %br
+    = f.text_field :uname
+  %p
+    %label Password
+    %br
+    = f.password_field :password
+  %p
+    %label Confirm password
+    %br
+    = f.password_field :password_confirmation
+
+  %p.button
+    = f.submit

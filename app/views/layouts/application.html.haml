@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Mynotes
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "#{CONFIG[:faye][:host_url]}.js"
+    = csrf_meta_tags
+  %body
+    %p.notice
+      %em.inner= flash.notice
+    = yield
